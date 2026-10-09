@@ -1,0 +1,856 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --orange: #E8714A;
+  --orange2: #F5A87B;
+  --orange-deep: #C84B11;
+  --orange-pale: #FEF0E0;
+  --dark: #1a0a00;
+  --white: #fff;
+  --peach-bg: #fdf6f0;
+  --shadow: 0 6px 24px rgba(200, 75, 17, .10);
+  --shadow-hover: 0 12px 36px rgba(200, 75, 17, .16);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--peach-bg);
+  min-height: 100vh;
+  padding: 32px;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  width: 100%;
+  height: 76px;
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 200, 160, .25);
+  border-radius: 20px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+}
+
+.back {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--orange-deep), var(--orange));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .22s;
+  text-decoration: none;
+}
+
+.back:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(200, 75, 17, .3);
+}
+
+.back svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.header-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--orange-deep);
+}
+
+#editBtn {
+  border: none;
+  outline: none;
+  padding: 12px 26px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--orange-deep), var(--orange));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(200, 75, 17, .25);
+  transition: .22s;
+  font-family: inherit;
+}
+
+#editBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(200, 75, 17, .35);
+}
+
+/* =========================
+   MAIN CARD (CARD BELAKANG)
+========================= */
+.main-card {
+  background: #fff;
+  border: 1px solid rgba(232, 113, 74, .15);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 8px 40px rgba(200, 75, 17, .10);
+  position: relative;
+  overflow: visible;
+}
+
+/* Aksen dekorasi pojok kanan atas */
+.main-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(245, 168, 123, .18), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* =========================
+   NAMA MENU (di dalam main-card, di atas)
+========================= */
+.nama-input {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--dark);
+  outline: none;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid rgba(232, 113, 74, .12);
+}
+
+.nama-input:empty::before {
+  content: attr(data-placeholder);
+  color: #d4c4bb;
+}
+
+/* =========================
+   INNER GRID (3 card dalam)
+========================= */
+.inner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+.section-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #b08060;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   CARD FOTO
+========================= */
+.card-foto {
+  background: var(--peach-bg);
+  border: 1px solid rgba(232, 113, 74, .12);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(200, 75, 17, .06);
+}
+
+/* Upload area */
+.upload-area {
+  width: 100%;
+  height: 220px;
+  border: 2px dashed rgba(232, 113, 74, .3);
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: .25s;
+  position: relative;
+}
+
+.upload-area:hover {
+  border-color: var(--orange);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(232, 113, 74, .12);
+}
+
+.plus-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange-deep), var(--orange));
+  position: relative;
+  box-shadow: 0 8px 24px rgba(200, 75, 17, .25);
+}
+
+.plus-icon::before,
+.plus-icon::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.plus-icon::before {
+  width: 28px;
+  height: 5px;
+  top: 29px;
+  left: 18px;
+}
+
+.plus-icon::after {
+  width: 5px;
+  height: 28px;
+  top: 18px;
+  left: 29px;
+}
+
+.preview-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+#fileInput {
+  display: none;
+}
+
+/* Harga & Stok */
+.bottom-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(232, 113, 74, .12);
+}
+
+.field-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b08060;
+  margin-bottom: 6px;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-prefix,
+.field-suffix {
+  font-weight: 800;
+  color: var(--orange);
+  font-size: 13px;
+}
+
+.field-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--dark);
+  font-family: inherit;
+}
+
+.field-input::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* =========================
+   CARD DETAIL (kanan)
+========================= */
+.card-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   CARD KATEGORI + DESKRIPSI (GABUNG)
+========================= */
+.card-katdesc {
+  background: var(--peach-bg);
+  border: 1px solid rgba(232, 113, 74, .12);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(200, 75, 17, .06);
+  display: grid;
+  grid-template-columns: 1fr auto 1.4fr;
+  gap: 0;
+  align-items: start;
+}
+
+.katdesc-kiri {
+  padding-right: 20px;
+}
+
+.katdesc-divider {
+  width: 1px;
+  background: rgba(232, 113, 74, .15);
+  align-self: stretch;
+  margin: 4px 0;
+}
+
+.katdesc-kanan {
+  padding-left: 20px;
+}
+
+/* Dropdown Kategori */
+.select-box {
+  position: relative;
+}
+
+.select-selected {
+  height: 62px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(232, 113, 74, .15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  cursor: pointer;
+  transition: .22s;
+}
+
+.select-selected:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(232, 113, 74, .1);
+}
+
+.icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--orange-pale);
+  border: 1px solid rgba(232, 113, 74, .15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.icon-circle img {
+  width: 26px;
+}
+
+.select-label {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+}
+
+.arrow {
+  font-size: 16px;
+  color: var(--orange);
+  transition: .25s;
+}
+
+.select-options {
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  padding: 8px;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  display: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .1);
+  z-index: 200;
+  border: 1px solid rgba(232, 113, 74, .12);
+}
+
+.select-options.open {
+  display: block;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .18s;
+}
+
+.option:hover {
+  background: var(--orange-pale);
+}
+
+.option span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Textarea Deskripsi */
+.custom-textarea {
+  width: 100%;
+  height: 140px;
+  border: 1px solid rgba(232, 113, 74, .12);
+  outline: none;
+  resize: none;
+  border-radius: 14px;
+  padding: 14px;
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #444;
+  font-family: inherit;
+  transition: .2s;
+}
+
+.custom-textarea:focus {
+  border-color: rgba(232, 113, 74, .4);
+}
+
+.custom-textarea::placeholder {
+  color: #ccc;
+}
+
+/* =========================
+   VARIAN SECTION
+========================= */
+.varian-section {
+  background: var(--peach-bg);
+  border: 1px solid rgba(232, 113, 74, .12);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(200, 75, 17, .06);
+}
+
+.varian-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.varian-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+#varianCount {
+  font-size: 12px;
+  color: #b08060;
+  font-weight: 600;
+}
+
+#tambahVarianBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--orange-deep), var(--orange));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: .22s;
+}
+
+#tambahVarianBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(200, 75, 17, .3);
+}
+
+#tambahVarianBtn svg {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+#tambahVarianBtn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================
+   VARIAN GRID
+========================= */
+.varian-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+/* =========================
+   VARIAN CARD
+========================= */
+.varian-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(232, 113, 74, .12);
+  box-shadow: 0 2px 8px rgba(180, 80, 40, .06);
+  transition: .22s;
+  position: relative;
+}
+
+.varian-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(180, 80, 40, .14);
+}
+
+/* Gambar varian */
+.varian-gambar {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  background: var(--orange-pale);
+  cursor: pointer;
+}
+
+.varian-gambar img.varian-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  transition: transform .3s ease;
+}
+
+.varian-card:hover .varian-gambar img.varian-preview {
+  transform: scale(1.06);
+}
+
+.varian-upload-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.varian-upload-placeholder svg {
+  width: 32px;
+  height: 32px;
+  stroke: rgba(232, 113, 74, .45);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.varian-upload-placeholder span {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(232, 113, 74, .55);
+}
+
+.varian-file-input {
+  display: none;
+}
+
+/* Overlay hover gambar varian */
+.varian-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .35) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.varian-card:hover .varian-overlay {
+  opacity: 1;
+}
+
+.btn-ganti-foto {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--orange-deep);
+  font-size: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  align-self: flex-start;
+  transition: .15s;
+}
+
+.btn-ganti-foto:hover {
+  background: #fff7f0;
+}
+
+/* Isi varian */
+.varian-isi {
+  padding: 10px;
+}
+
+.varian-nama-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  font-family: inherit;
+  margin-bottom: 7px;
+  border-bottom: 1.5px solid rgba(232, 113, 74, .15);
+  padding-bottom: 5px;
+  transition: .2s;
+}
+
+.varian-nama-input:focus {
+  border-bottom-color: var(--orange);
+}
+
+.varian-nama-input::placeholder {
+  color: #ccc;
+}
+
+.varian-harga-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.varian-prefix {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+.varian-harga-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--dark);
+  font-family: inherit;
+}
+
+.varian-harga-input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.varian-harga-input::placeholder {
+  color: #ddd;
+}
+
+.btn-hapus-varian {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: #fff5f5;
+  color: #e53935;
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid rgba(229, 57, 53, .15);
+  cursor: pointer;
+  font-family: inherit;
+  transition: .15s;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-hapus-varian:hover {
+  background: #ffebeb;
+  border-color: rgba(229, 57, 53, .3);
+}
+
+.btn-hapus-varian svg {
+  width: 11px;
+  height: 11px;
+  stroke: #e53935;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.btn-hapus-varian:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+/* =========================
+   EMPTY STATE VARIAN
+========================= */
+.varian-empty {
+  text-align: center;
+  padding: 32px 20px;
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 600;
+  display: none;
+}
+
+/* =========================
+   LOCKED STATE
+========================= */
+.locked input,
+.locked textarea {
+  cursor: default;
+}
+
+.locked .upload-area {
+  pointer-events: none;
+  opacity: .75;
+}
+
+.locked .varian-gambar {
+  pointer-events: none;
+}
+
+.locked .select-selected {
+  pointer-events: none;
+}
+
+.locked #tambahVarianBtn {
+  display: none;
+}
+
+.locked .btn-hapus-varian {
+  display: none;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+  .inner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-foto {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-katdesc {
+    grid-template-columns: 1fr;
+  }
+
+  .katdesc-divider {
+    width: 100%;
+    height: 1px;
+    margin: 16px 0;
+  }
+
+  .katdesc-kiri {
+    padding-right: 0;
+  }
+
+  .katdesc-kanan {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  header {
+    padding: 0 16px;
+    height: 68px;
+  }
+
+  .header-title {
+    font-size: 20px;
+  }
+
+  #editBtn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .main-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .nama-input {
+    font-size: 26px;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .varian-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
